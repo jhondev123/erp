@@ -1,0 +1,3 @@
+alias sa='./vendor/bin/sail artisan'
+alias sail='./vendor/bin/sail'
+alias sailtest='./vendor/bin/sail test'

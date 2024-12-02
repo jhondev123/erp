@@ -36,4 +36,5 @@ class Configue extends Model
 {
     /** @use HasFactory<\Database\Factories\ConfigueFactory> */
     use HasFactory;
+    protected $fillable = ['name', 'description', 'key', 'value', 'is_active'];
 }

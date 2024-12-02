@@ -39,6 +39,8 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $last_login_ip
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLastLoginAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLastLoginIp($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Role> $roles
+ * @property-read int|null $roles_count
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -79,4 +81,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'user_roles');
+    }
+
 }

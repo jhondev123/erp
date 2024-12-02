@@ -34,4 +34,5 @@ class PaymentMethod extends Model
 {
     /** @use HasFactory<\Database\Factories\PaymentMethodFactory> */
     use HasFactory;
+    protected $fillable = ['name', 'description', 'is_active', 'fee'];
 }

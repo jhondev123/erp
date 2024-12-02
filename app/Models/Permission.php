@@ -19,10 +19,20 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission whereUpdatedAt($value)
  * @mixin IdeHelperPermission
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Role> $roles
+ * @property-read int|null $roles_count
  * @mixin \Eloquent
  */
 class Permission extends Model
 {
     /** @use HasFactory<\Database\Factories\PermissionFactory> */
     use HasFactory;
+
+    protected $fillable = ['name', 'slug', 'description'];
+
+    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'role_permissions');
+
+    }
 }

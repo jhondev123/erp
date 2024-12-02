@@ -41,4 +41,14 @@ class Menu extends Model
 {
     /** @use HasFactory<\Database\Factories\MenuFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'icon',
+        'order',
+        'parent_id',
+        'route',
+        'is_active',
+    ];
 }

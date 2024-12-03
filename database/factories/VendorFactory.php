@@ -26,7 +26,7 @@ class VendorFactory extends Factory
     {
         return [
             'person_id' => Person::factory(),
-            'credit_limit' => $this->faker->randomFloat(2, 0, 99999999.99),
+            'credit_limit' => $this->faker->randomFloat(2, 0, 99999),
             'ratting' => $this->faker->numberBetween(0, 100),
         ];
     }

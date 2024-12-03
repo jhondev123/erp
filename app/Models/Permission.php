@@ -21,6 +21,14 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin IdeHelperPermission
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Role> $roles
  * @property-read int|null $roles_count
+ * @property string $name
+ * @property string $slug
+ * @property string|null $description
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission whereSlug($value)
  * @mixin \Eloquent
  */
 class Permission extends Model

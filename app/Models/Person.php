@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Person newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Person newQuery()
@@ -43,4 +44,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Person extends Model
 {
+    use HasFactory;
+    protected $fillable = [
+        'fullname',
+        'email',
+        'document_number',
+        'birthdate',
+        'type',
+        'status',
+        'notes',
+        'photo',
+        'phone',
+        'cellphone'
+    ];
 }

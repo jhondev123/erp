@@ -37,7 +37,7 @@ class UserFactory extends Factory
             'last_login_at' => $this->faker->dateTime(),
             'last_login_ip' => $this->faker->ipv4(),
             'email_verified_at' => now(),
-            'password' => static::$password ?: static::$password = Hash::make('password'),
+            'password' => bcrypt('password'),
 
         ];
     }

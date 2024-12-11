@@ -57,4 +57,10 @@ class Person extends Model
         'phone',
         'cellphone'
     ];
+
+    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(User::class);
+    }
+
 }

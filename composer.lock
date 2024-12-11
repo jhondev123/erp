@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1893f223bb9c73f73ea1375b000cc18e",
+    "content-hash": "bd2ed8892269d1f20419091da89faa23",
     "packages": [
         {
             "name": "brick/math",
@@ -1053,6 +1053,47 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "jhonattan/response-helper-laravel",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jhondev123/response-helper-laravel.git",
+                "reference": "1b5b1a0ddb541007a71190496b9550c160eaa8e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jhondev123/response-helper-laravel/zipball/1b5b1a0ddb541007a71190496b9550c160eaa8e0",
+                "reference": "1b5b1a0ddb541007a71190496b9550c160eaa8e0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jhonattan\\ResponseHelperLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jhondev123",
+                    "email": "jhonattan.curtarelli@outlook.com"
+                }
+            ],
+            "description": "this package creates a standard interface for returning endpoints",
+            "support": {
+                "issues": "https://github.com/jhondev123/response-helper-laravel/issues",
+                "source": "https://github.com/jhondev123/response-helper-laravel/tree/main"
+            },
+            "time": "2024-12-07T13:43:10+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8409,7 +8450,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "jhonattan/response-helper-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

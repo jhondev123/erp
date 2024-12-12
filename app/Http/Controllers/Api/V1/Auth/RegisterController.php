@@ -23,7 +23,7 @@ class RegisterController extends Controller
                 new RegisterResource($user)
             );
         } catch (\Exception $e) {
-            return $this->error($e->getMessage(), $e->getCode());
+            return $this->error($e->getMessage(), $e->getCode() ?? 500);
         }
 
     }

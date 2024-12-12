@@ -2,6 +2,9 @@
 
 namespace Tests\Feature\Api\V1\Auth\Register;
 
+use Domain\Enums\DocumentType;
+use App\Models\DocumentType as ModelsDocumentType;
+use Illuminate\Support\Facades\DB;
 use Tests\ApiTestCase;
 
 class RegisterTest extends ApiTestCase
@@ -9,11 +12,23 @@ class RegisterTest extends ApiTestCase
     private array $validData = [
         'fullname' => 'Jhonattan',
         'email' => 'jhonattan@gmail.com',
-        'document_type' => 'cpf',
+        'document_type_id' => 1,
         'document_number' => '13612599908',
         'password' => 'jhon99681424',
         'password_confirmation' => 'jhon99681424',
     ];
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        ModelsDocumentType::factory()->create([
+            'name' => DocumentType::CPF,
+            'mask' => '###.###.###-##',
+            'description' => 'Cadastro de Pessoa Física'
+        ]);
+
+
+    }
 
 
     public function test_create_account_with_valid_data(): void
@@ -111,7 +126,7 @@ class RegisterTest extends ApiTestCase
         $response = $this->post(route('auth.register'), [
             'fullname' => 'Jhonattan',
             'email' => 'teste@gmail.com',
-            'document_type' => '',
+            'document_type_id' => '',
             'document_number' => '13612599908',
             'password' => 'jhon99681424',
             'password_confirmation' => 'jhon99681424'
@@ -123,7 +138,7 @@ class RegisterTest extends ApiTestCase
                 "errors"
             ]
         );
-        $response->assertJsonValidationErrors('document_type');
+        $response->assertJsonValidationErrors('document_type_id');
     }
 
     public function test_create_account_with_field_document_type_is_invalid()
@@ -131,7 +146,7 @@ class RegisterTest extends ApiTestCase
         $response = $this->post(route('auth.register'), [
             'fullname' => 'Jhonattan',
             'email' => 'teste@gmail.com',
-            'document_type' => 'invalid_type',
+            'document_type_id' => 'invalid_type',
             'document_number' => '13612599909',
             'password' => 'jhon99681424',
             'password_confirmation' => 'jhon99681424'
@@ -143,7 +158,7 @@ class RegisterTest extends ApiTestCase
                 "errors"
             ]
         );
-        $response->assertJsonValidationErrors('document_type');
+        $response->assertJsonValidationErrors('document_type_id');
     }
 
     public function test_create_account_with_field_document_number_empty()

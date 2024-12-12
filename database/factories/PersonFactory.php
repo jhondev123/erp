@@ -30,6 +30,7 @@ class PersonFactory extends Factory
         return [
             'fullname' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'document_type_id' => $this->faker->numberBetween(1, 2),
             'document_number' => $this->faker->unique()->numerify('###########'),
             'birthdate' => $this->faker->date(),
             'type' => $this->faker->randomElement(['physical','juridical']),

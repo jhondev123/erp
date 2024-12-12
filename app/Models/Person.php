@@ -48,6 +48,7 @@ class Person extends Model
     protected $fillable = [
         'fullname',
         'email',
+        'document_type_id',
         'document_number',
         'birthdate',
         'type',

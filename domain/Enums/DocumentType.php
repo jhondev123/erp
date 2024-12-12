@@ -2,7 +2,7 @@
 
 namespace Domain\Enums;
 
-enum DocumentType:string
+enum DocumentType:int
 {
-    case CPF = 'cpf';
+    case CPF = 1;
 }

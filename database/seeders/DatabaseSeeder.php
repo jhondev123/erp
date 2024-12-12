@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            DocumentTypeSeeder::class,
             ConfigueSeeder::class,
             RoleSeeder::class,
             MenuSeeder::class,

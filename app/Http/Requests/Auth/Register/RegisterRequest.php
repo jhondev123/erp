@@ -22,6 +22,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'fullname' => ['required', 'string', 'max:255'],
+            'document_type_id' => ['required', 'integer', 'exists:document_types,id'],
             'document_number' => ['required', 'string', 'max:255', 'unique:people'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:people'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],

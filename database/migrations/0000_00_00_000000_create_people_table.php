@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('fullname');
             $table->string('email');
+            $table->foreignId('document_type_id')->constrained('document_types', 'id');
             $table->string('document_number')->unique();
             $table->string('birthdate')->nullable();
             $table->enum('type',['physical','juridical'])->default('physical');

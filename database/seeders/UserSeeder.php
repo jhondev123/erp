@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         $person = Person::create([
             'fullname' => 'Jhonattan',
             'email' => 'jhonattan@gmail.com',
+            'document_type_id' => 1,
             'document_number' => '12345678910',
             'birthdate' => '1990-01-01',
             'type' => 'physical',
